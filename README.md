@@ -66,4 +66,4 @@
 ![Admin_member](./img/admin_member.png)
 
 ## 시연 영상 ##
-- 차후에 업로드 예정입니다.
+![project](./img/project.gif)
