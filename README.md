@@ -29,6 +29,10 @@
 4. 상품관리(상품 등록/수정 및 게시상태)
 <br/><br/>
 
+## <b> ERD </b> ##
+![ERD](./img/ERD.png)
+<br/><br/>
+
 ## <b>구동 화면</b> ##
 > 사용자 페이지
 * 메인(/)
@@ -49,8 +53,8 @@
 ![STYLE](./img/style.png) 
 <br/><br/>
 * 스타일 게시물 클릭시 보여지는 페이지(./img/popular)
-![STYLE_info1](./img/style_info2.png)
-![STYLE_info2](./img/style_info1.png)  
+![STYLE_info1](./img/style_info1.png)
+![STYLE_info2](./img/style_info2.png)  
 <br/><br/>
 
 > 관리자 페이지
@@ -64,6 +68,6 @@
 ![Admin_notice](./img/admin_notice.png)
 * 회원관리(/pages/member/all)
 ![Admin_member](./img/admin_member.png)
-
-## 시연 영상 ##
+<br/><br/>
+## <b>시연 영상</b> ##
 ![동영상](./img/동영상.gif)
