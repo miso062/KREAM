@@ -66,4 +66,4 @@
 ![Admin_member](./img/admin_member.png)
 
 ## 시연 영상 ##
-![project](./img/project.gif)
+![동영상](./img/동영상.gif)
