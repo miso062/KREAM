@@ -71,7 +71,7 @@ public class QSales extends EntityPathBase<Sales> {
         super(type, metadata, inits);
         this.account = inits.isInitialized("account") ? new QAccount(forProperty("account"), inits.get("account")) : null;
         this.address = inits.isInitialized("address") ? new QAddress(forProperty("address"), inits.get("address")) : null;
-        this.customer = inits.isInitialized("customer") ? new QCustomer(forProperty("customer"), inits.get("customer")) : null;
+        this.customer = inits.isInitialized("customer") ? new QCustomer(forProperty("customer")) : null;
         this.product = inits.isInitialized("product") ? new QProduct(forProperty("product")) : null;
         this.purchase = inits.isInitialized("purchase") ? new QPurchase(forProperty("purchase"), inits.get("purchase")) : null;
     }

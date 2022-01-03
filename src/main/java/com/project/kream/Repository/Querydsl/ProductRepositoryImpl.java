@@ -34,7 +34,7 @@ public class ProductRepositoryImpl implements ProductCustom {
     public List<ProductApiResponse> ProductSearch(String orderFlag, Category category, SubCategory subCategory, String brand1, String brand2, String brand3, String brand4, String brand5, String brand6, String brand7, String brand8, String brand9, String brand10, String brand11, String brand12, String brand13, String brand14, String brand15, String brand16, String brand17, String brand18, String brand19, String brand20, String gender, String collection1, String collection2,
                                                   String collection3, String collection4, String collection5, String collection6, String collection7, String collection8, String collection9, String collection10, String size1, String size2, String size3, String size4, String size5, String size6, String size7, String size8, String size9, String size10, String size11, Long price1, Long price2, Long price3, Long price4, Long price5, Long price6){
 
-        NumberPath<Long> amount = Expressions.numberPath(Long.class, "amount");
+        NumberPath<Long> amount = Expressions.numberPath(Long.class, "amount"); // select id, (select count(*) from memeber) as amount from friend;
         NumberPath<Long> mini = Expressions.numberPath(Long.class, "mini");
         NumberPath<Long> maxx = Expressions.numberPath(Long.class, "maxx");
         NumberPath<Long> premium = Expressions.numberPath(Long.class, "premium");
@@ -45,6 +45,7 @@ public class ProductRepositoryImpl implements ProductCustom {
         if(orderFlag == null){
             orderFlag = "popular";
         }
+
         if(orderFlag.equals("popular")) {
             if (price1 == null && price2 == null && price3 == null && price4 == null && price5 == null && price6 == null){
                 result = queryFactory.select(Projections.constructor(ProductApiResponse.class, product.id, product.brand, product.collection, product.category, product.subCategory, product.korName, product.name, product.gender, product.release, product.releasePrice, product.modelNumber, product.color, product.postStatus, product.regdate,
@@ -63,7 +64,6 @@ public class ProductRepositoryImpl implements ProductCustom {
                         .orderBy(amount.desc())
                         .fetch();
             }
-
             else{
                 result = queryFactory.select(Projections.constructor(ProductApiResponse.class, product.id, product.brand, product.collection, product.category, product.subCategory, product.korName, product.name, product.gender, product.release, product.releasePrice, product.modelNumber, product.color, product.postStatus, product.regdate,
                                 ExpressionUtils.as(JPAExpressions.select(transaction.count()).from(transaction).where(transaction.product.id.eq(product.id)), amount),
@@ -223,6 +223,7 @@ public class ProductRepositoryImpl implements ProductCustom {
                                 product.postStatus.eq(PostStatus.게시중))
                         .orderBy(product.release.desc())
                         .fetch();
+
             }
         }
         return result;

@@ -25,6 +25,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Long>, JpaSp
     Customer findByEmailAndHp(String email, String hp);
     Optional<Customer> findByEmail(String email);
 
+
     // 비밀번호 찾기
     Customer findByHp(String hp);
 

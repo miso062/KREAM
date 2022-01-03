@@ -2,18 +2,16 @@ package com.project.kream.Model.Entity;
 
 import com.project.kream.Model.enumclass.CustomerQnaType;
 import com.project.kream.Model.enumclass.QnaStauts;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 
-@Data
-@AllArgsConstructor
+@Getter
+@Setter
 @NoArgsConstructor
-@Builder
+@AllArgsConstructor
+
 @Entity
 @SequenceGenerator(
         name="seq_customer_qna",
@@ -36,7 +34,26 @@ public class CustomerQna extends UpdateEntity{
     private String answer;
     private String acomment;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Customer customer;
 
+    @Builder
+    public CustomerQna(QnaStauts status, CustomerQnaType type, String title, String content, String answer,  Customer customer) {
+        this.status = status;
+        this.type = type;
+        this.title = title;
+        this.content = content;
+        this.answer = answer;
+        this.customer = customer;
+    }
+
+    public void update(QnaStauts status, CustomerQnaType type, String title, String content, String answer, String acomment, Customer customer){
+        this.status = status;
+        this.type = type;
+        this.title = title;
+        this.content = content;
+        this.answer = answer;
+        this.acomment = acomment;
+        this.customer = customer;
+    }
 }

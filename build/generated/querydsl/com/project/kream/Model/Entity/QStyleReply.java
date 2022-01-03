@@ -67,7 +67,7 @@ public class QStyleReply extends EntityPathBase<StyleReply> {
 
     public QStyleReply(Class<? extends StyleReply> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
-        this.customer = inits.isInitialized("customer") ? new QCustomer(forProperty("customer"), inits.get("customer")) : null;
+        this.customer = inits.isInitialized("customer") ? new QCustomer(forProperty("customer")) : null;
         this.style = inits.isInitialized("style") ? new QStyle(forProperty("style"), inits.get("style")) : null;
     }
 

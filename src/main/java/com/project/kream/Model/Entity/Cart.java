@@ -1,16 +1,14 @@
 package com.project.kream.Model.Entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
-@Data
-@AllArgsConstructor
+@Getter
+@Setter
 @NoArgsConstructor
-@Builder
+@AllArgsConstructor
 @Entity
 @SequenceGenerator(
         name="seq_cart",
@@ -24,9 +22,17 @@ public class Cart extends DateEntity{
     private Long id;
     private String sizeType;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Customer customer;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Product product;
+
+    @Builder
+    public Cart(LocalDateTime regdate, String sizeType, Customer customer, Product product) {
+        super(regdate);
+        this.sizeType = sizeType;
+        this.customer = customer;
+        this.product = product;
+    }
 }

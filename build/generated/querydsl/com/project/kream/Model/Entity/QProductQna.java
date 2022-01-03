@@ -64,7 +64,7 @@ public class QProductQna extends EntityPathBase<ProductQna> {
 
     public QProductQna(Class<? extends ProductQna> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
-        this.customer = inits.isInitialized("customer") ? new QCustomer(forProperty("customer"), inits.get("customer")) : null;
+        this.customer = inits.isInitialized("customer") ? new QCustomer(forProperty("customer")) : null;
     }
 
 }

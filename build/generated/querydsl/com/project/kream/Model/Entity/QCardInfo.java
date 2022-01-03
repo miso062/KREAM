@@ -56,7 +56,7 @@ public class QCardInfo extends EntityPathBase<CardInfo> {
 
     public QCardInfo(Class<? extends CardInfo> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
-        this.customer = inits.isInitialized("customer") ? new QCustomer(forProperty("customer"), inits.get("customer")) : null;
+        this.customer = inits.isInitialized("customer") ? new QCustomer(forProperty("customer")) : null;
     }
 
 }

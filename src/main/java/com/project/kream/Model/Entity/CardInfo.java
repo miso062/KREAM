@@ -1,17 +1,15 @@
 package com.project.kream.Model.Entity;
 
 import com.project.kream.Model.enumclass.CardFlag;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
-@Data
-@AllArgsConstructor
+@Getter
+@Setter
 @NoArgsConstructor
-@Builder
+@AllArgsConstructor
+
 @Entity
 @SequenceGenerator(
         name="seq_card_info",
@@ -32,6 +30,27 @@ public class CardInfo {
     @Enumerated(EnumType.STRING)
     private CardFlag cardFlag;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Customer customer;
+
+    @Builder
+    public CardInfo(String cardCompany, String cardNumber, String expiration, String birthdate, String cardpw, CardFlag cardFlag, Customer customer) {
+        this.cardCompany = cardCompany;
+        this.cardNumber = cardNumber;
+        this.expiration = expiration;
+        this.birthdate = birthdate;
+        this.cardpw = cardpw;
+        this.cardFlag = cardFlag;
+        this.customer = customer;
+    }
+
+    public void update(String cardCompany, String cardNumber, String expiration, String birthdate, String cardpw, CardFlag cardFlag, Customer customer){
+        this.cardCompany = cardCompany;
+        this.cardNumber = cardNumber;
+        this.expiration = expiration;
+        this.birthdate = birthdate;
+        this.cardpw = cardpw;
+        this.cardFlag = cardFlag;
+        this.customer = customer;
+    }
 }

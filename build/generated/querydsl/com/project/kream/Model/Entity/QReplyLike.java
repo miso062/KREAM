@@ -46,7 +46,7 @@ public class QReplyLike extends EntityPathBase<ReplyLike> {
 
     public QReplyLike(Class<? extends ReplyLike> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
-        this.customer = inits.isInitialized("customer") ? new QCustomer(forProperty("customer"), inits.get("customer")) : null;
+        this.customer = inits.isInitialized("customer") ? new QCustomer(forProperty("customer")) : null;
         this.styleReply = inits.isInitialized("styleReply") ? new QStyleReply(forProperty("styleReply"), inits.get("styleReply")) : null;
     }
 

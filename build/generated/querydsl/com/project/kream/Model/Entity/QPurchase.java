@@ -30,7 +30,7 @@ public class QPurchase extends EntityPathBase<Purchase> {
 
     public final QCustomer customer;
 
-    public final QDelivery delivery;
+    public final ListPath<Delivery, QDelivery> deliveryList = this.<Delivery, QDelivery>createList("deliveryList", Delivery.class, QDelivery.class, PathInits.DIRECT2);
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
@@ -73,8 +73,7 @@ public class QPurchase extends EntityPathBase<Purchase> {
         super(type, metadata, inits);
         this.address = inits.isInitialized("address") ? new QAddress(forProperty("address"), inits.get("address")) : null;
         this.cardInfo = inits.isInitialized("cardInfo") ? new QCardInfo(forProperty("cardInfo"), inits.get("cardInfo")) : null;
-        this.customer = inits.isInitialized("customer") ? new QCustomer(forProperty("customer"), inits.get("customer")) : null;
-        this.delivery = inits.isInitialized("delivery") ? new QDelivery(forProperty("delivery"), inits.get("delivery")) : null;
+        this.customer = inits.isInitialized("customer") ? new QCustomer(forProperty("customer")) : null;
         this.product = inits.isInitialized("product") ? new QProduct(forProperty("product")) : null;
         this.sales = inits.isInitialized("sales") ? new QSales(forProperty("sales"), inits.get("sales")) : null;
     }

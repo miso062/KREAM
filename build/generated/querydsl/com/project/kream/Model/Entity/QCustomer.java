@@ -18,13 +18,11 @@ public class QCustomer extends EntityPathBase<Customer> {
 
     private static final long serialVersionUID = -221608194L;
 
-    private static final PathInits INITS = PathInits.DIRECT2;
-
     public static final QCustomer customer = new QCustomer("customer");
 
     public final QDateEntity _super = new QDateEntity(this);
 
-    public final QAccount account;
+    public final ListPath<Account, QAccount> accountList = this.<Account, QAccount>createList("accountList", Account.class, QAccount.class, PathInits.DIRECT2);
 
     public final ListPath<Address, QAddress> addressList = this.<Address, QAddress>createList("addressList", Address.class, QAddress.class, PathInits.DIRECT2);
 
@@ -75,7 +73,7 @@ public class QCustomer extends EntityPathBase<Customer> {
 
     public final StringPath smsAllow = createString("smsAllow");
 
-    public final QStyleCustomer styleCustomer;
+    public final ListPath<StyleCustomer, QStyleCustomer> styleCustomerList = this.<StyleCustomer, QStyleCustomer>createList("styleCustomerList", StyleCustomer.class, QStyleCustomer.class, PathInits.DIRECT2);
 
     public final ListPath<StyleLike, QStyleLike> styleLikeList = this.<StyleLike, QStyleLike>createList("styleLikeList", StyleLike.class, QStyleLike.class, PathInits.DIRECT2);
 
@@ -88,25 +86,15 @@ public class QCustomer extends EntityPathBase<Customer> {
     public final StringPath userpw = createString("userpw");
 
     public QCustomer(String variable) {
-        this(Customer.class, forVariable(variable), INITS);
+        super(Customer.class, forVariable(variable));
     }
 
     public QCustomer(Path<? extends Customer> path) {
-        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));
+        super(path.getType(), path.getMetadata());
     }
 
     public QCustomer(PathMetadata metadata) {
-        this(metadata, PathInits.getFor(metadata, INITS));
-    }
-
-    public QCustomer(PathMetadata metadata, PathInits inits) {
-        this(Customer.class, metadata, inits);
-    }
-
-    public QCustomer(Class<? extends Customer> type, PathMetadata metadata, PathInits inits) {
-        super(type, metadata, inits);
-        this.account = inits.isInitialized("account") ? new QAccount(forProperty("account"), inits.get("account")) : null;
-        this.styleCustomer = inits.isInitialized("styleCustomer") ? new QStyleCustomer(forProperty("styleCustomer"), inits.get("styleCustomer")) : null;
+        super(Customer.class, metadata);
     }
 
 }

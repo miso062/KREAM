@@ -49,6 +49,7 @@ public class ProductSpecification {
                 spec = spec.and(ProductSpecification.equalbrand(product.getData().getBrand()));
             }
         }
+
         if(product.getData().getPostStatus() != null){
             if(spec == null){
                 spec = Specification.where(ProductSpecification.equalPostStatus(product.getData().getPostStatus()));
@@ -56,6 +57,7 @@ public class ProductSpecification {
                 spec = spec.and(ProductSpecification.equalPostStatus(product.getData().getPostStatus()));
             }
         }
+
         if(product.getData().getCategory() != null){
             if(spec == null){
                 spec = Specification.where(ProductSpecification.equalCategory(product.getData().getCategory()));
@@ -63,6 +65,7 @@ public class ProductSpecification {
                 spec = spec.and(ProductSpecification.equalCategory(product.getData().getCategory()));
             }
         }
+
         return productRepository.findAll(spec, pageable);
     }
 }
