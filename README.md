@@ -6,6 +6,30 @@
  * 사용 기술 : JDBC,Thymeleaf,jQuery,Ajax,Spring-Boot(2.5),Mail API,JPA/Hiberrate, Restful API, QueryDSL
 <br/><br/>
 
+## 현재 코드 수정중 ##
+### 수정 일자
+- 2022년 01월 17일 수정
+  - AddressService
+  - CustomerService
+  - ProductService
+  - PurchaseService
+  - StyleImgservice
+  - TransactionService
+  - WithdrawalService
+  - DashBoardService
+  - FollowService
+  - HashTagService
+  - ProductQnaService
+- 2022년 01월 18일 수정
+  - ProductService
+  - ProImgservice
+  - ProSizeService
+  - ProductTagService
+  - StyleService
+- 2022년 01월 20일 수정
+  - 나머지 Service 모두 수정 완료
+
+
 
 ## <b>프로젝트 상세내용</b> ##
 ### <b>구현목표</b> ###
