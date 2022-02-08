@@ -6,7 +6,7 @@
  * 사용 기술 : JDBC,Thymeleaf,jQuery,Ajax,Spring-Boot(2.5),Mail API,JPA/Hiberrate, Restful API, QueryDSL
 <br/><br/>
 
-## 리팩토링  ##
+## 리팩토링 완료 ##
 ### 수정 일자
 - 2022년 01월 17일 수정
   - AddressService
